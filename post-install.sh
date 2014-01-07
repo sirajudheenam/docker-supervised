@@ -20,8 +20,8 @@ sed -i -e '/pam_login/d' /etc/pam.d/login
 
 echo d0ck3r | passwd --stdin root
 
-## start ssh once to create host keys
-/etc/rc.d/init.d/sshd start
+## prevent sshd from daemonizing, and send output to stderr instead of syslog
+echo 'OPTIONS="-e -D"' >> /etc/sysconfig/sshd
 
 yum clean all
 mkdir -p /etc/supervisor.d /var/log/supervisor
