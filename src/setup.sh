@@ -38,6 +38,10 @@ echo 'OPTIONS="-D"' >> /etc/sysconfig/sshd
 ## prevent crond from daemonizing, send logs to syslog, no mail
 echo 'CRONDARGS="-m off -s -n"' >> /etc/sysconfig/crond
 
+## relax pam to let cron run
+## http://lists.freedesktop.org/archives/systemd-devel/2013-May/010944.html
+sed -i -E -e 's/^(.*pam_loginuid.so)$/#\1/g' /etc/pam.d/crond
+
 ## === RSYSLOGD CONFIG
 
 ## prevent rsyslogd from daemonizing
