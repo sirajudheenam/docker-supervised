@@ -2,7 +2,7 @@
 
 set -e
 
-IMAGE="localhost:5000/core/supervised"
+IMAGE="zardoz.podzone.org:11003/core/supervised"
 
 docker build -t ${IMAGE} .
 docker push ${IMAGE}
