@@ -1,4 +1,4 @@
-FROM localhost:5000/core/centos
+FROM zardoz.podzone.org:11002/core/centos
 
 EXPOSE 22
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
