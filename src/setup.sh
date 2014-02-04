@@ -7,14 +7,13 @@ cd /tmp/src
 
 yum localinstall -y https://asl-docker.s3.amazonaws.com/el6/asl-docker-1.0-1.noarch.rpm
 
-yum install -y python-supervisor openssh-server passwd rootfiles cronie
+yum install -y python-supervisor openssh-server passwd rootfiles cronie logstash-forwarder
 
-## === SUPERVISORD CONFIG
+## copy files into place
+tar -c -C skel -f - . | tar -xf - -C /
 
-mkdir -p /etc/supervisor.d /var/log/supervisor
-
-mv config/supervisord.conf /etc/supervisord.conf
-mv config/program-*.conf /etc/supervisor.d/
+## required log dir for supervisor
+mkdir -p /var/log/supervisor
 
 ## === SSH CONFIG
 

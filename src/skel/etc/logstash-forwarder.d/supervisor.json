@@ -1,0 +1,6 @@
+{
+    "paths": [
+        "/var/log/supervisor/supervisord.log"
+    ],
+    "type": "supervisor"
+}

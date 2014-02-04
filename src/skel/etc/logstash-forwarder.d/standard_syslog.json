@@ -1,0 +1,8 @@
+{
+    "paths": [
+        "/var/log/cron",
+        "/var/log/messages",
+        "/var/log/secure"
+    ],
+    "type": "syslog"
+}
