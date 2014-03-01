@@ -1,4 +1,4 @@
-FROM zardoz.podzone.org:11003/core/centos
+FROM blalor/centos:latest
 
 EXPOSE 22
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]

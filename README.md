@@ -6,6 +6,24 @@
 
 To add your own programs, just put their `.conf` files in `/etc/supervisor.d/`.
 
+## collectd/graphite
+
+If the `GRAPHITE_HOST` environment variable is provided, `collectd` will start
+up and send metrics from the container to that Graphite (well, `carbon-cache`)
+server.  The default config captures interface, process and TCP connection
+metrics.  Additional metric sources can be configured by creating files in
+`/etc/collectd.d`.
+
+## logstash
+
+`logstash-forwarder` is installed, allowing you to forward container logs to a
+Logstash instance (or some other service that uses the lumberjack input).  It
+requires some configuration, however:
+
+* `/etc/logstash/pki` must exist and contain `lumberjack.crt` and `lumberjack.key`
+* The `LOGSTASH_FORWARDER_DEST` environment variable must be set to `remote_host:remote_port`
+* The `LOGSTASH_FORWARDER_TAGS` environment variable must be provided; tags are split on `,`
+
 ## other bloat
 
 `crond` and `rsyslog` are both provided in this image.  I'd not intended to run

@@ -5,7 +5,7 @@ set -x
 
 cd /tmp/src
 
-yum localinstall -y https://asl-docker.s3.amazonaws.com/el6/asl-docker-1.0-1.noarch.rpm
+yum localinstall -y https://blalor-yum.s3.amazonaws.com/el6/blalor-yum-1.0-1.noarch.rpm
 
 yum install -y \
     python-supervisor \
