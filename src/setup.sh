@@ -13,7 +13,7 @@ yum install -y \
     passwd \
     rootfiles \
     cronie \
-    logstash-forwarder \
+    logstash-forwarder-69142e7-1 \
     collectd
 
 ## copy files into place
